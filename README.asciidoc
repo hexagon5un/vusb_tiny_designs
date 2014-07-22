@@ -15,7 +15,13 @@ this to be a useful piece of gear for the long-run, you're going to want
 something indestructable.  And that means making up some circuit boards.
 And that's what you'll find here.
 
+==== Instructions
 
+For instructions on flashing the programmer's program into the chip and more,
+see http://littlehacks.org/propack/vusb-really-tiny.htm[my writeup here].
+There's also a good teaser forthcoming as a skill-builder on the Make magazine
+blog, where I show you how to use an Arduino as an ISP so that you can flash
+code into this project's AVR, to build your own ISP.  So meta!
 
 ==== Schematics
 
