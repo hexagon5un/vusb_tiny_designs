@@ -4008,7 +4008,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value="1uF"/>
 <part name="SUPPLY1" library="supply2" deviceset="GND" device=""/>
 <part name="USB" library="pinhead" deviceset="PINHD-1X4" device=""/>
 <part name="R1" library="resistor" deviceset="R-EU_" device="R0805" value="68ohm"/>
@@ -4016,7 +4016,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/22049b.pdf</description>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="R1206" value="1k Ohm"/>
 <part name="U$1" library="elliot" deviceset="SMT_ISP" device=""/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value="1uF"/>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
 <part name="IC1" library="linear" deviceset="MCP1703*" device="MB" technology="33"/>

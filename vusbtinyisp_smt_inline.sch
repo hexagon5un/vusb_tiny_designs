@@ -5137,7 +5137,7 @@ For boards designed to be plugged directly into a USB slot. If possible, ensure 
 <part name="SUPPLY2" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
-<part name="R3" library="resistor" deviceset="R-EU_" device="R1206" value="1k Ohm"/>
+<part name="R3" library="resistor" deviceset="R-EU_" device="R1206" value="1.5k Ohm"/>
 <part name="JP2" library="SparkFun-Connectors" deviceset="USB" device="SMD"/>
 <part name="U$1" library="elliot" deviceset="SMT_ISP" device=""/>
 </parts>

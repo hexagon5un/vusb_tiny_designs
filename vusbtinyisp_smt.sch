@@ -5297,7 +5297,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <part name="SUPPLY2" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
-<part name="R3" library="resistor" deviceset="R-EU_" device="R1206" value="1k Ohm"/>
+<part name="R3" library="resistor" deviceset="R-EU_" device="R1206" value="1.5k Ohm"/>
 <part name="J1" library="SparkFun-Connectors" deviceset="AVR_SPI_PRG_6" device="NS"/>
 <part name="JP2" library="SparkFun-Connectors" deviceset="USB" device="SMD"/>
 </parts>
