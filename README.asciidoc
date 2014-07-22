@@ -31,6 +31,12 @@ Eagle, drop in your favorite USB connector or ISP header (some people like the
 10-pin ones), re-name the nets appropriately, and you're almost done.  Keeps
 the design modular.
 
+==== Gerbers, DIY Toner Transfer
+
+If you don't want to modify the circuits in any way, I've made up Gerbers so
+that you can get them fabbed if you're lazy.  There are also Postscript files
+with the top an bottom copper layers for all of the PCBs as well if you'd like
+to DIY: print them out, iron them on.  
 
 ==== SMT Versions
 
