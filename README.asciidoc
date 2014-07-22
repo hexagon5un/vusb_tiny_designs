@@ -1,0 +1,68 @@
+== Circuits and PCBs for VUSB Tiny ISP Programmer
+
+=== A Build-it-Yourself AVR Programmer
+
+First off, many thanks to 
+the excellent http://www.simpleavr.com/avr/vusbtiny[V-USB Tiny ISP]
+which provides the firmware for easily making an AVR USB in-system programmer (ISP)
+using the ridiculously-inexpensive ATTiny 45/85 microcontroller, three
+resistors, and two zener diodes.  All told, you're looking at easily under $2
+in parts, assuming you can scrounge up a USB cable from somewhere.  That's
+awesome. 
+
+The original author built his on a breadboard.  That's fine, but if you want
+this to be a useful piece of gear for the long-run, you're going to want
+something indestructable.  And that means making up some circuit boards.
+And that's what you'll find here.
+
+
+
+==== Schematics
+
+As far as schematics go, these are dead simple.  Included are two basic
+versions (with voltage regulator or with 3.6V limiting zener diodes).  The PDFs
+should convince you that there's not much going on here.  The various
+schematics are different versions of the programmer that I've made while trying
+this circuit out.
+
+Again, there's not much there.  I left the schematics rough and disconnected,
+using network names for the hooking-up.  This lets you open the schematic up in
+Eagle, drop in your favorite USB connector or ISP header (some people like the
+10-pin ones), re-name the nets appropriately, and you're almost done.  Keeps
+the design modular.
+
+
+==== SMT Versions
+
+Basically, I like large SMT parts because I really hate drilling holes and
+because surface-mount parts are more available, make the circuit compact, and
+aren't really all that hard to deal with.  That said, I ordered up some tiny
+little zener diodes by mistake, so I'm using them here.  Changing the
+package/technology in Eagle shouldn't be that big a deal.
+
+But a lot of folks like soldering DIP variations.  To that end, I've built up
+the all-DIP version of the circuit.  Have fun.
+
+==== Outputs
+
+The "inline" variant of the programmer's output is convenient if you're
+programming a lot of the DIP Mega chips on breadboards.  See
+http://littlehacks.org/propack/simple_isp[this explanation for the logic behind
+the layout.]
+
+Otherwise, the 2x3 standard ISP header is the way to go.  What's particularly
+fun about this circuit is that you can flash the programmer over the ISP
+header, and then turn around and use the same ISP connector as the "output" of
+your newly-made programmer.  ( Note that this is a one-way operation, once you
+disable the soon-to-be-programmer's RESET pin, so make sure that your code has
+uploaded successfully before re-doing the fuses.)
+
+=== That's all, folks.
+
+If you end up building one of these from these schematics or PCB designs, let
+me know.  I'd be stoked.  Otherwise, enjoy.
+
+
+
+
+
