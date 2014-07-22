@@ -1,0 +1,506 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Title: EAGLE Drawing /home/elliot/hack/eagle/vusb_tiny_designs/vusbtinyisp_smt/vusbtinyisp_smt.brd
+%%Creator: EAGLE
+%%Pages: 1
+%%BoundingBox: 0 0 557 803
+%%EndComments
+
+% Coordinate transfer:
+
+/EU { 254 div 0.072 mul } def
+/inch { 72 mul } def
+
+% Linestyle:
+
+1 setlinecap
+1 setlinejoin
+
+% Drawing functions:
+
+/l {  % draw a line
+   /lw exch def
+   /y2 exch def
+   /x2 exch def
+   /y1 exch def
+   /x1 exch def
+   newpath
+   x1 EU y1 EU moveto
+   x2 EU y2 EU lineto
+   lw EU setlinewidth
+   stroke
+   } def
+
+/h {  % draw a hole
+   /d  exch def
+   /y  exch def
+   /x  exch def
+   d 0 gt {
+     newpath
+     x EU y EU d 2 div EU 0 360 arc
+     currentgray dup
+     1 exch sub setgray
+     fill
+     setgray
+     } if
+   } def
+
+/b {  % draw a bar
+   /an exch def
+   /y2 exch def
+   /x2 exch def
+   /y1 exch def
+   /x1 exch def
+   /w2 x2 x1 sub 2 div EU def
+   /h2 y2 y1 sub 2 div EU def
+   gsave
+   x1 x2 add 2 div EU y1 y2 add 2 div EU translate
+   an rotate
+   newpath
+   w2     h2     moveto
+   w2 neg h2     lineto
+   w2 neg h2 neg lineto
+   w2     h2 neg lineto
+   closepath
+   fill
+   grestore
+   } def
+
+/c {  % draw a circle
+   /lw exch def
+   /rd exch def
+   /y  exch def
+   /x  exch def
+   newpath
+   lw EU setlinewidth
+   x EU y EU rd EU 0 360 arc
+   stroke
+   } def
+
+/a {  % draw an arc
+   /lc exch def
+   /ae exch def
+   /as exch def
+   /lw exch def
+   /rd exch def
+   /y  exch def
+   /x  exch def
+   lw rd 2 mul gt {
+     /rd rd lw 2 div add 2 div def
+     /lw rd 2 mul def
+     } if
+   currentlinecap currentlinejoin
+   lc setlinecap 0 setlinejoin
+   newpath
+   lw EU setlinewidth
+   x EU y EU rd EU as ae arc
+   stroke
+   setlinejoin setlinecap
+   } def
+
+/p {  % draw a pie
+   /d exch def
+   /y exch def
+   /x exch def
+   newpath
+   x EU y EU d 2 div EU 0 360 arc
+   fill
+   } def
+
+/edge { 0.20710678119 mul } def
+
+/o {  % draw an octagon
+   /an exch def
+   /dy exch def
+   /dx exch def
+   /y  exch def
+   /x  exch def
+   gsave
+   x EU y EU translate
+   an dx dy lt { 90 add /dx dy /dy dx def def } if rotate
+   newpath
+      0 dx 2 div sub EU                    0 dy edge  add EU moveto
+      0 dx dy sub 2 div sub dy edge sub EU 0 dy 2 div add EU lineto
+      0 dx dy sub 2 div add dy edge add EU 0 dy 2 div add EU lineto
+      0 dx 2 div add EU                    0 dy edge  add EU lineto
+      0 dx 2 div add EU                    0 dy edge  sub EU lineto
+      0 dx dy sub 2 div add dy edge add EU 0 dy 2 div sub EU lineto
+      0 dx dy sub 2 div sub dy edge sub EU 0 dy 2 div sub EU lineto
+      0 dx 2 div sub EU                    0 dy edge  sub EU lineto
+   closepath
+   fill
+   grestore
+   } def
+
+% the real drawing size:
+
+/MinDrawX      0 EU def
+/MinDrawY      0 EU def
+/MaxDrawX 757428 EU def
+/MaxDrawY 871728 EU def
+
+% the usable page size:
+
+/LeftMargin 0.25 inch def  % change these if drawing gets clipped!
+/BotMargin  0.25 inch def
+/PageWidth   7.4803 inch def
+/PageHeight 10.9055 inch def
+
+% are we going to rotate?:
+
+/RotateDrawing 0 0 ne def
+
+% Media size functions:
+
+/AbortMessage {  % Show a message in a box and stop printing
+   /h 100 def
+   /Courier findfont 12 scalefont setfont
+   mediawidth pagemargin sub h 1 setpage
+   newpath
+   0 0 moveto
+   0 h rlineto
+   mediawidth pagemargin sub 0 rlineto
+   0 h neg rlineto
+   closepath
+   5 setlinewidth
+   stroke
+   newpath 50 60 moveto (ERROR: Jobsize exceeds physical printing area!) show
+   newpath 50 40 moveto (       Job has been aborted!) show
+   showpage
+   stop
+   } def
+
+/SelectPage {  % Select the page identified by Row and Column
+   /Column exch def
+   /Row    exch def
+
+   % the actually exposed area (if the machine knows these parameters!):
+
+   /DrawX MaxDrawX MinDrawX sub def
+   /DrawY MaxDrawY MinDrawY sub def
+   statusdict /setpage known
+   statusdict /mediawidth known and
+   statusdict /medialength known and
+   statusdict /pagemargin known and {
+      % this is for machines that can tell the media size:
+      statusdict begin
+         /MediaW mediawidth pagemargin sub def
+         DrawX DrawY ge {
+            DrawX MediaW le DrawY medialength le and {
+               MediaW DrawY 1 setpage
+               MediaW DrawX sub 2 div 0 translate
+               }{
+            DrawY MediaW le DrawX medialength le and {
+               MediaW DrawX 0 setpage
+               0 MediaW DrawY sub 2 div translate
+               }{
+               AbortMessage
+               } ifelse
+               } ifelse
+            }{
+            DrawY MediaW le DrawX medialength le and {
+               MediaW DrawX 0 setpage
+               0 MediaW DrawY sub 2 div translate
+               }{
+            DrawX MediaW le DrawY medialength le and {
+               MediaW DrawY 1 setpage
+               MediaW DrawX sub 2 div 0 translate
+               }{
+               AbortMessage
+               } ifelse
+               } ifelse
+            } ifelse
+         end
+      }{
+      % this is for machines that can NOT tell the media size:
+      % (Ghostscript doesn't like this!)
+      /Product product length string def
+      /i 0 def
+      product { dup 97 lt { 32 add } if Product exch i exch put /i i 1 add def } forall 
+      Product (ghostscript) search dup /IsGhostscript exch def
+      { pop pop } if
+      pop
+      IsGhostscript not {
+         statusdict /setpage known {
+            statusdict begin
+               RotateDrawing {
+                  LeftMargin PageHeight add BotMargin DrawY add
+                  }{
+                  BotMargin DrawY add LeftMargin DrawX add 
+                  } ifelse
+               0 setpage
+               end
+            } if
+         } if
+      % set clipping boundary:
+      newpath
+      LeftMargin BotMargin moveto
+      0 PageHeight rlineto
+      PageWidth  0 rlineto
+      0 PageHeight neg rlineto
+      closepath
+      clip
+      % set the origin:
+      LeftMargin BotMargin translate
+      RotateDrawing {
+         0 PageHeight translate
+         -90 rotate
+         PageHeight Column mul neg PageWidth Row mul neg translate
+         }{
+         PageWidth Column mul neg PageHeight Row mul neg translate
+         } ifelse
+      } ifelse
+   % move the lower left corner of the drawing to the origin:
+   MinDrawX neg MinDrawY neg translate
+   
+   % Linestyle:
+   
+   1 setlinecap
+   1 setlinejoin
+   
+   } def
+
+% TheDrawing
+
+gsave 0 0 SelectPage
+537464 537464 747524 537464 0 l
+747524 537464 747524 829464 0 l
+747524 829464 537464 829464 0 l
+537464 829464 537464 537464 0 l
+670306 774446 689102 793242 270.0 b
+705104 783844 18796 18796 0.0 o
+679704 758444 18796 18796 0.0 o
+705104 758444 18796 18796 0.0 o
+679704 733044 18796 18796 0.0 o
+705104 733044 18796 18796 0.0 o
+604364 600964 4500 0 c
+648364 600964 4500 0 c
+735840 817780 735840 549148 3048 l
+735840 549148 549148 549148 3048 l
+549148 549148 549148 817780 3048 l
+549148 817780 735840 817780 3048 l
+667991 768858 668925 768858 3048 l
+668925 768858 664718 764651 3048 l
+664718 764651 664718 752237 3048 l
+664718 752237 671211 745744 3048 l
+671211 745744 664718 739251 3048 l
+664718 739251 664718 726837 3048 l
+664718 726837 673497 718058 3048 l
+673497 718058 685911 718058 3048 l
+685911 718058 692404 724551 3048 l
+692404 724551 698897 718058 3048 l
+698897 718058 711311 718058 3048 l
+711311 718058 720090 726837 3048 l
+720090 726837 720090 739251 3048 l
+720090 739251 713597 745744 3048 l
+713597 745744 720090 752237 3048 l
+720090 752237 720090 764651 3048 l
+720090 764651 712879 771862 3048 l
+712879 771862 719074 778057 3048 l
+719074 778057 719074 782828 3048 l
+719074 782828 706120 782828 3048 l
+706120 782828 706120 784860 3048 l
+706120 784860 719074 784860 3048 l
+719074 784860 719074 789631 3048 l
+719074 789631 710891 797814 3048 l
+710891 797814 706120 797814 3048 l
+706120 797814 706120 784860 3048 l
+706120 784860 704088 784860 3048 l
+704088 784860 704088 797814 3048 l
+704088 797814 699317 797814 3048 l
+699317 797814 694690 793186 3048 l
+694690 793186 694690 795557 3048 l
+694690 795557 691417 798830 3048 l
+691417 798830 667991 798830 3048 l
+667991 798830 664718 795557 3048 l
+664718 795557 664718 772131 3048 l
+664718 772131 667991 768858 3048 l
+620548 597745 620548 604183 3048 l
+620548 604183 618084 610131 3048 l
+618084 610131 613531 614684 3048 l
+613531 614684 607583 617148 3048 l
+607583 617148 601145 617148 3048 l
+601145 617148 595197 614684 3048 l
+595197 614684 590644 610131 3048 l
+590644 610131 588180 604183 3048 l
+588180 604183 588180 597745 3048 l
+588180 597745 590644 591797 3048 l
+590644 591797 595197 587244 3048 l
+595197 587244 601145 584780 3048 l
+601145 584780 607583 584780 3048 l
+607583 584780 613531 587244 3048 l
+613531 587244 618084 591797 3048 l
+618084 591797 620548 597745 3048 l
+664548 597745 664548 604183 3048 l
+664548 604183 662084 610131 3048 l
+662084 610131 657531 614684 3048 l
+657531 614684 651583 617148 3048 l
+651583 617148 645145 617148 3048 l
+645145 617148 639197 614684 3048 l
+639197 614684 634644 610131 3048 l
+634644 610131 632180 604183 3048 l
+632180 604183 632180 597745 3048 l
+632180 597745 634644 591797 3048 l
+634644 591797 639197 587244 3048 l
+639197 587244 645145 584780 3048 l
+645145 584780 651583 584780 3048 l
+651583 584780 657531 587244 3048 l
+657531 587244 662084 591797 3048 l
+662084 591797 664548 597745 3048 l
+549148 549264 735840 549264 3048 l
+549148 552300 735840 552300 3048 l
+549148 555336 735840 555336 3048 l
+549148 558372 735840 558372 3048 l
+549148 561408 735840 561408 3048 l
+549148 564444 735840 564444 3048 l
+549148 567480 735840 567480 3048 l
+549148 570516 735840 570516 3048 l
+549148 573552 735840 573552 3048 l
+549148 576588 735840 576588 3048 l
+549148 579624 735840 579624 3048 l
+549148 582660 735840 582660 3048 l
+549148 585696 598933 585696 3048 l
+609795 585696 642933 585696 3048 l
+653795 585696 735840 585696 3048 l
+549148 588732 593708 588732 3048 l
+615020 588732 637708 588732 3048 l
+659020 588732 735840 588732 3048 l
+549148 591768 590672 591768 3048 l
+618056 591768 634672 591768 3048 l
+662056 591768 735840 591768 3048 l
+549148 594804 589398 594804 3048 l
+619330 594804 633398 594804 3048 l
+663330 594804 735840 594804 3048 l
+549148 597840 588180 597840 3048 l
+620548 597840 632180 597840 3048 l
+664548 597840 735840 597840 3048 l
+549148 600876 588180 600876 3048 l
+620548 600876 632180 600876 3048 l
+664548 600876 735840 600876 3048 l
+549148 603912 588180 603912 3048 l
+620548 603912 632180 603912 3048 l
+664548 603912 735840 603912 3048 l
+549148 606948 589325 606948 3048 l
+619403 606948 633325 606948 3048 l
+663403 606948 735840 606948 3048 l
+549148 609984 590583 609984 3048 l
+618145 609984 634583 609984 3048 l
+662145 609984 735840 609984 3048 l
+549148 613020 593532 613020 3048 l
+615196 613020 637532 613020 3048 l
+659196 613020 735840 613020 3048 l
+549148 616056 598509 616056 3048 l
+610219 616056 642509 616056 3048 l
+654219 616056 735840 616056 3048 l
+549148 619092 735840 619092 3048 l
+549148 622128 735840 622128 3048 l
+549148 625164 735840 625164 3048 l
+549148 628200 735840 628200 3048 l
+549148 631236 735840 631236 3048 l
+549148 634272 735840 634272 3048 l
+549148 637308 735840 637308 3048 l
+549148 640344 735840 640344 3048 l
+549148 643380 735840 643380 3048 l
+549148 646416 735840 646416 3048 l
+549148 649452 735840 649452 3048 l
+549148 652488 735840 652488 3048 l
+549148 655524 735840 655524 3048 l
+549148 658560 735840 658560 3048 l
+549148 661596 735840 661596 3048 l
+549148 664632 735840 664632 3048 l
+549148 667668 735840 667668 3048 l
+549148 670704 735840 670704 3048 l
+549148 673740 735840 673740 3048 l
+549148 676776 735840 676776 3048 l
+549148 679812 735840 679812 3048 l
+549148 682848 735840 682848 3048 l
+549148 685884 735840 685884 3048 l
+549148 688920 735840 688920 3048 l
+549148 691956 735840 691956 3048 l
+549148 694992 735840 694992 3048 l
+549148 698028 735840 698028 3048 l
+549148 701064 735840 701064 3048 l
+549148 704100 735840 704100 3048 l
+549148 707136 735840 707136 3048 l
+549148 710172 735840 710172 3048 l
+549148 713208 735840 713208 3048 l
+549148 716244 735840 716244 3048 l
+549148 719280 672275 719280 3048 l
+687133 719280 697675 719280 3048 l
+712533 719280 735840 719280 3048 l
+549148 722316 669239 722316 3048 l
+690169 722316 694639 722316 3048 l
+715569 722316 735840 722316 3048 l
+549148 725352 666203 725352 3048 l
+718605 725352 735840 725352 3048 l
+549148 728388 664718 728388 3048 l
+720090 728388 735840 728388 3048 l
+549148 731424 664718 731424 3048 l
+720090 731424 735840 731424 3048 l
+549148 734460 664718 734460 3048 l
+720090 734460 735840 734460 3048 l
+549148 737496 664718 737496 3048 l
+720090 737496 735840 737496 3048 l
+549148 740532 665999 740532 3048 l
+718809 740532 735840 740532 3048 l
+549148 743568 669035 743568 3048 l
+715773 743568 735840 743568 3048 l
+549148 746604 670351 746604 3048 l
+714457 746604 735840 746604 3048 l
+549148 749640 667315 749640 3048 l
+717493 749640 735840 749640 3048 l
+549148 752676 664718 752676 3048 l
+720090 752676 735840 752676 3048 l
+549148 755712 664718 755712 3048 l
+720090 755712 735840 755712 3048 l
+549148 758748 664718 758748 3048 l
+720090 758748 735840 758748 3048 l
+549148 761784 664718 761784 3048 l
+720090 761784 735840 761784 3048 l
+549148 764820 664887 764820 3048 l
+719921 764820 735840 764820 3048 l
+549148 767856 667923 767856 3048 l
+716885 767856 735840 767856 3048 l
+549148 770892 665957 770892 3048 l
+713849 770892 735840 770892 3048 l
+549148 773928 664718 773928 3048 l
+714945 773928 735840 773928 3048 l
+549148 776964 664718 776964 3048 l
+717981 776964 735840 776964 3048 l
+549148 780000 664718 780000 3048 l
+719074 780000 735840 780000 3048 l
+549148 783036 664718 783036 3048 l
+706120 783036 735840 783036 3048 l
+549148 786072 664718 786072 3048 l
+704088 786072 706120 786072 3048 l
+719074 786072 735840 786072 3048 l
+549148 789108 664718 789108 3048 l
+704088 789108 706120 789108 3048 l
+719074 789108 735840 789108 3048 l
+549148 792144 664718 792144 3048 l
+704088 792144 706120 792144 3048 l
+716561 792144 735840 792144 3048 l
+549148 795180 664718 795180 3048 l
+694690 795180 696684 795180 3048 l
+704088 795180 706120 795180 3048 l
+713525 795180 735840 795180 3048 l
+549148 798216 667377 798216 3048 l
+692031 798216 735840 798216 3048 l
+549148 801252 735840 801252 3048 l
+549148 804288 735840 804288 3048 l
+549148 807324 735840 807324 3048 l
+549148 810360 735840 810360 3048 l
+549148 813396 735840 813396 3048 l
+549148 816432 735840 816432 3048 l
+588264 738124 14128 p
+598424 649224 14128 p
+598424 649224 603504 722884 3048 l
+603504 722884 588264 738124 3048 l
+679704 783844 10160 h
+705104 783844 10160 h
+679704 758444 10160 h
+705104 758444 10160 h
+679704 733044 10160 h
+705104 733044 10160 h
+588264 738124 6000 h
+598424 649224 6000 h
+showpage grestore
